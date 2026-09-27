@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Warm-Up Tasks</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f4f7fb; display: flex; justify-content: center; padding: 40px 20px; }
+    .container { width: 100%; max-width: 500px; background: #fff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    h1 { font-size: 20px; margin-bottom: 6px; }
+    p.note { font-size: 13px; color: #666; margin-bottom: 20px; }
+    .task { margin-bottom: 18px; padding: 14px; border: 1px solid #e0e0e0; border-radius: 8px; }
+    .task h2 { font-size: 14px; margin-bottom: 8px; color: #333; }
+    .task p { font-size: 13px; color: #555; margin-bottom: 10px; }
+    button { padding: 6px 14px; border: none; border-radius: 5px; background: #4a6fdc; color: #fff; cursor: pointer; font-size: 13px; }
+    #warmup4List { list-style: none; margin-top: 10px; }
+    #warmup4List li { padding: 6px 10px; border-bottom: 1px solid #eee; font-size: 13px; }
+    .result { font-size: 13px; color: #27ae60; margin-top: 8px; min-height: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Warm-Up 1 -->
+    <div class="task">
+      <h2>Link Confirmed</h2>
+      <p>Check the Console for: <code>Script connected</code></p>
+      <p class="result" id="wu1Result"></p>
+    </div>
+
+    <!-- Warm-Up 2 -->
+    <div class="task">
+      <h2>Select the Button</h2>
+      <p>Click below — the Add button is selected with <code>getElementById</code> and logged to Console.</p>
+      <button id="wu2Trigger">Run Selection</button>
+      <button id="addBtn">Add</button>
+      <p class="result" id="wu2Result"></p>
+    </div>
+
+    <!-- Warm-Up 3 -->
+    <div class="task">
+      <h2>Click Listener</h2>
+      <p>Clicking Add logs <code>"clicked"</code> to the Console.</p>
+    </div>
+
+    <!-- Warm-Up 4 -->
+    <div class="task">
+      <h2>CreateElement & appendChild</h2>
+      <p>Click to hard-code one &lt;li&gt; into the list below.</p>
+      <button id="wu4Btn">Add Hard-Coded Item</button>
+      <ul id="warmup4List"></ul>
+      <p class="result" id="wu4Result"></p>
+    </div>
+  </div>
+
+  <script>
+    // Warm-Up 1: Confirm script is linked
+    console.log("Script connected");
+    document.getElementById("wu1Result").textContent = "✔ Script linked (see Console)";
+
+    // Warm-Up 2: Select Add button and log it
+    const addBtn = document.getElementById("addBtn");
+    document.getElementById("wu2Trigger").addEventListener("click", () => {
+      console.log(addBtn);
+      document.getElementById("wu2Result").textContent = "✔ Button logged to Console";
+    });
+
+    // Warm-Up 3: Click listener on Add button logs "clicked"
+    addBtn.addEventListener("click", () => {
+      console.log("clicked");
+    });
+
+    // Warm-Up 4: Hard-coded li appended to list
+    document.getElementById("wu4Btn").addEventListener("click", () => {
+      const list = document.getElementById("warmup4List");
+      const li = document.createElement("li");
+      li.textContent = "Hard-coded task item";
+      list.appendChild(li);
+      document.getElementById("wu4Result").textContent = "✔ <li> created and appended";
+    });
+  </script>
+</body>
+</html>
